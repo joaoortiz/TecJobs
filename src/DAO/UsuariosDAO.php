@@ -12,7 +12,7 @@ class UsuariosDAO {
         $objBD = new ConexaoDAO();
         $vConn = $objBD->abrirConexao();
         
-        $sqlLogin = "Select * from Usuarios ";
+        $sqlLogin = "Select * from usuarios ";
         $sqlLogin .= "where login_USUARIO like '$login' and ";
         $sqlLogin .= "senha_USUARIO like '" . md5($senha) . "'";
         
