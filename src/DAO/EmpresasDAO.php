@@ -134,7 +134,7 @@ class EmpresasDAO {
         $objBD = new ConexaoDAO();
         $vConn = $objBD->abrirConexao();
 
-        $sqlEmp = "Select * from EMPRESAS E where E.id_EMPRESA = '$id'";
+        $sqlEmp = "Select * from empresas E where E.id_EMPRESA = '$id'";
 
         $rsEmp = $vConn->query($sqlEmp);
         $tblEmpresa = $rsEmp->fetch();
@@ -163,7 +163,7 @@ class EmpresasDAO {
         $objBD = new ConexaoDAO();
         $vConn = $objBD->abrirConexao();
 
-        $sqlVaga = "Select * from VAGAS V, TIPOSVAGAS TV where V.id_VAGA = '$id' and V.idTipo_VAGA = TV.id_TIPOVAGA";
+        $sqlVaga = "Select * from vagas V, tiposvagas TV where V.id_VAGA = '$id' and V.idTipo_VAGA = TV.id_TIPOVAGA";
 
         $rsVaga = $vConn->query($sqlVaga);
         $tblVaga = $rsVaga->fetch();
@@ -194,11 +194,11 @@ class EmpresasDAO {
         $sqlEmp = "";
 
         if ($tipo == 0) { //todas
-            $sqlEmp = "Select * from EMPRESAS";
+            $sqlEmp = "Select * from empresas";
         } else if ($tipo == 1) { //por nome
-            $sqlEmp = "Select * from EMPRESAS where nomeFantasia_EMPRESA like '%$nome%'";
+            $sqlEmp = "Select * from empresas where nomeFantasia_EMPRESA like '%$nome%'";
         } else if ($tipo == 2) { //por cat
-            $sqlEmp = "Select * from EMPRESAS where idCategoria_EMPRESA = '$idCat'";
+            $sqlEmp = "Select * from empresas where idCategoria_EMPRESA = '$idCat'";
         }
 
         $rsEmp = $vConn->query($sqlEmp);
@@ -252,7 +252,7 @@ class EmpresasDAO {
         $objBD = new ConexaoDAO();
         $vConn = $objBD->abrirConexao();
 
-        $sqlVer = "Select * from INTERESSES where idCandidato_INTERESSE = '$idCand' and idEmpresa_INTERESSE = '$idEmpresa'";
+        $sqlVer = "Select * from interesses where idCandidato_INTERESSE = '$idCand' and idEmpresa_INTERESSE = '$idEmpresa'";
 
         $rsVer = $vConn->query($sqlVer);
         $numReg = $rsVer->rowCount();
@@ -321,7 +321,7 @@ class EmpresasDAO {
         $objBD = new ConexaoDAO();
         $vConn = $objBD->abrirConexao();
 
-        $sqlEmp = "Select id_EMPRESA from EMPRESAS order by id_EMPRESA desc limit 1";
+        $sqlEmp = "Select id_EMPRESA from empresas order by id_EMPRESA desc limit 1";
         $rsId = $vConn->query($sqlEmp);
 
         $tblId = $rsId->fetch();
