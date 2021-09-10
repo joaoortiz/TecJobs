@@ -1,4 +1,3 @@
-
 <?php
 require_once "../Model/Empresas.php";
 require_once "../DAO/EmpresasDAO.php";
@@ -39,7 +38,7 @@ $sigo = $objBDEmp->verificarRelacao($idCand, $idEmp)
         <div class="container" style="margin-top: 30px;">
             <div class="row" style="min-height: 180px;">
                 <div class="col-lg-2" style="padding-top:10px;">
-                    <img src="../../img/users/<?= $empresa->getImagem(); ?> ?>" alt="" class="img-fluid rounded-circle border">
+                    <img src="../../img/users/<?= $empresa->getImagem(); ?>" alt="" class="img-fluid rounded-circle border">
                 </div>
 
                 <div class="col-lg-10" style="padding-top: 15px;padding-bottom:15px;">

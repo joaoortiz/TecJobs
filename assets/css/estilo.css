@@ -37,7 +37,7 @@
     font-size: 30pt;
     color: #7952B3;
     min-height:600px;
-    background-image: url(../../img/misc/backTeam.png);
+    background-image: url('../../img/misc/backTeam.png');
     background-repeat: no-repeat;
     background-position: 30px 110px;
     background-size: 870px 480px;
