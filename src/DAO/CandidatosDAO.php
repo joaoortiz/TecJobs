@@ -125,7 +125,7 @@ class CandidatosDAO {
         $objBD = new ConexaoDAO();
         $vConn = $objBD->abrirConexao();
 
-        $sqlCand = "Select id_CANDIDATO from CANDIDATOS order by id_CANDIDATO desc limit 1";
+        $sqlCand = "Select id_CANDIDATO from candidatos order by id_CANDIDATO desc limit 1";
         $rsId = $vConn->query($sqlCand);
 
         $tblId = $rsId->fetch();
@@ -137,7 +137,7 @@ class CandidatosDAO {
         $objBD = new ConexaoDAO();
         $vConn = $objBD->abrirConexao();
 
-        $sqlCand = "Select * from CANDIDATOS C where C.id_CANDIDATO = '$id'";
+        $sqlCand = "Select * from candidatos C where C.id_CANDIDATO = '$id'";
 
         $rsCand = $vConn->query($sqlCand);
         $tblCand = $rsCand->fetch();
@@ -185,9 +185,9 @@ class CandidatosDAO {
         $vConn = $objBD->abrirConexao();
 
         if ($tipo == 1) { //busca por palavra
-            $sqlVagas = "Select * from Vagas where cargo_VAGA like '%$tmpBusca%' or descricao_VAGA like '%$tmpBusca%'";
+            $sqlVagas = "Select * from vagas where cargo_VAGA like '%$tmpBusca%' or descricao_VAGA like '%$tmpBusca%'";
         } else if ($tipo == 2) { //busca inteligente
-            $sqlVagas = "Select V.id_VAGA, V.cargo_VAGA, V.icone_VAGA, V.descricao_VAGA, E.id_EMPRESA,E.imagem_EMPRESA from VAGAS V, EMPRESAS E where ";
+            $sqlVagas = "Select V.id_VAGA, V.cargo_VAGA, V.icone_VAGA, V.descricao_VAGA, E.id_EMPRESA,E.imagem_EMPRESA from vagas V, empresas E where ";
             $sqlVagas.= "V.idEmpresa_VAGA = E.id_EMPRESA and V.id_VAGA in ";
             $sqlVagas.= "(Select A.idVaga_AREA from Candidatos C,Areas A, Tecnologias T, Niveis N where ";
             $sqlVagas.= "N.idCandidato_NIVEL = 1 and T.id_TECNOLOGIA = N.idTecnologia_NIVEL and ";
